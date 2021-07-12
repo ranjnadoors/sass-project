@@ -1,0 +1,97 @@
+@import "variable";
+@mixin bd-radius($value) {
+  border-radius:$value;
+}
+
+nav {
+  overflow: hidden;
+  background-color: $main-color;
+  position: fixed;
+  top: 0;
+  width: 70%;
+  z-index: 99;
+  ul {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    li {
+      display: inline;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 17px;
+      a {
+        color: $nav-bg;
+        text-decoration: none;
+        padding: 14px;
+        &:hover {
+          background-color: $nav-bg;
+          color: $main-color;
+        }
+      }
+    }
+  }
+}
+ h2{
+     background: green;
+     color: $nav-bg;
+     font-size: 30px;
+     margin-top: 50px;
+     text-align: center;
+     padding: 10px 0px;
+ }
+p{
+    color: $main-color;
+    font-size: 20px;
+    text-align: start;
+}
+.p1{
+  @include bd-radius(20px);
+  @extend p;
+  border: 1px solid red;
+  background-color: red;
+}
+.p2{
+  @include bd-radius(5px);
+  @extend p;
+  border: 1px solid blue;
+  background-color: cadetblue;
+}
+.sidenav {
+  height: 100%;
+  text-align: center;
+ a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: $main-color;
+  display: block;
+  transition: 0.3s;
+
+  &:hover {
+  color: $nav-bg;
+  background:$main-color ;
+}
+ }
+}
+/***********************function************************/
+$container-width:1600;
+
+@function half($width){
+  @return $width/2 + px ;
+}
+@function one-third($width){
+  @return $width/3 + px ;
+}
+@function one-fourth($width){
+  @return $width/4 + px ;
+}
+.half-width{
+  width: half($container-width);
+  
+}
+.one-third-width{
+  width:one-third($container-width);
+}
+.one-fourth-width{
+  width: one-fourth($container-width);
+}
